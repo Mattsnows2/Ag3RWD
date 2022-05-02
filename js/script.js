@@ -19,12 +19,7 @@ function randomMovement(IdRef) {
 }
 
 $('#butterfly').mouseenter(function() {
-<<<<<<< HEAD
     $(this).stop();
     $(this).animate({left: Math.random() * (window.outerWidth-150), top: Math.random() * (window.outerHeight-150)},"fast");
     randomMovement(this);
 });
-=======
-    $(this).animate({left: Math.random() * window.outerWidth - 100, top: Math.random() * window.outerHeight - 150},"slow");
-});
->>>>>>> c1308b3fd548d5e4fbc6532cb49aa95565a9654c
