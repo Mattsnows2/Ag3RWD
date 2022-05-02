@@ -1,18 +1,29 @@
 $("#apple1").on("click", function(){
 
-    $("#apple1").animate({left: "-550", top:"420", degree:360}, "slow") 
+    var dim1=$(".basket");
+    var positionToBasket = dim1[0].getBoundingClientRect().top
+    var positionToBasketLeft = dim1[0].getBoundingClientRect().left
+    console.log(positionToBasketLeft);
+   
+    $("#apple1").animate({left: positionToBasketLeft+30, top:positionToBasket+150}, "slow") 
   
    
 });
 
 $("#apple2").on("click", function(){
 
-    $("#apple2").animate({left: "-400", top:"460"}, "slow") //animation of the apples
+    var dim1=$(".basket");
+    var positionToBasket = dim1[0].getBoundingClientRect().top
+    var positionToBasketLeft = dim1[0].getBoundingClientRect().left
+    $("#apple2").animate({left: positionToBasketLeft+30, top:positionToBasket+150}, "slow")  //animation of the apples
 });
 
 $("#apple3").on("click", function(){
 
-    $("#apple3").animate({left: "-950", top:"520"}, "slow") //animation of the apples
+    var dim1=$(".basket");
+    var positionToBasket = dim1[0].getBoundingClientRect().top
+    var positionToBasketLeft = dim1[0].getBoundingClientRect().left
+    $("#apple3").animate({left: positionToBasketLeft+30, top:positionToBasket+150}, "slow")  
 });
 //MAKE THE MAGIC HAPPEN
 $(document).mousemove(function(e) {
@@ -39,6 +50,30 @@ $('#butterfly').mouseenter(function() {
 $(document).ready(function() {
    
 
+    var minLeft=900;
+    var maxLeft=1200;
+    var minHeight=200;
+    var maxHeidht=500;
+    var random1 = Math.ceil(Math.random() * (maxLeft- minLeft)+minLeft);
+    var random2 = Math.ceil(Math.random() * 350);
+
+    var random3 = Math.ceil(Math.random() * (maxLeft- minLeft)+minLeft);
+    var random4 = Math.ceil(Math.random() * 350);
+
+    var random5 = Math.ceil(Math.random() * (maxLeft- minLeft)+minLeft);
+    var random6 = Math.ceil(Math.random() * 350);
+
+
+    $("#apple1").css('top', random2);
+    $("#apple1").css('left', random1);
+
+    $("#apple2").css('top', random4);
+    $("#apple2").css('left', random3);
+
+    $("#apple3").css('top', random6);
+    $("#apple3").css('left', random5);
+
+  
         $("#backgroundImage").attr("src",'images/night.jpg').delay(2000);
     });
  

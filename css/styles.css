@@ -36,8 +36,7 @@ body {
     height: 50px;
     width: auto;
     position: absolute;
-    margin-left: 950px;
-    margin-top:250px;
+   
     z-index: 1;
 }
 
@@ -45,8 +44,7 @@ body {
     height: 50px;
     width: auto;
     position: absolute;
-    margin-left: 800px;
-    margin-top:200px;
+
     z-index: 1;
 }
 
@@ -54,8 +52,7 @@ body {
     height: 50px;
     width: auto;
     position: absolute;
-    margin-left: 1300px;
-    margin-top:150px;
+ 
     z-index: 1;
 }
 
