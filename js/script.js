@@ -104,3 +104,34 @@ $(document).keydown(function(e){
         $("#caterpillar").animate({left: -movement+Xpos}); Xpos = Xpos-movement;
     }
 });
+
+//WATERINGCAN
+let degrees = 0;
+let tiltSt = false;
+$('#wateringcan').on('mousedown', function (e) {
+    degrees = -45;
+    tiltSt = true;
+    $('#wateringcan').css({
+        'transform': 'rotate(' + degrees + 'deg)',
+    });
+    waterdrops($(this).position())
+
+});
+
+$('#wateringcan').on("mouseleave mouseup", function () {
+    degrees = 0;
+    tiltSt = false;
+    $('#wateringcan').css({
+        'transform': 'rotate(' + degrees + 'deg)',
+    });
+});
+function waterdrops(post) {
+    $(".waterdrop").offset({
+            left:post.left,
+            top: post.top +100
+        });
+    
+        $(".waterdrop").fadeIn();
+        $(".waterdrop").animate();
+        $(".waterdrop").fadeOut();
+}
