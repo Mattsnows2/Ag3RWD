@@ -6,7 +6,16 @@ $(document).mousemove(function(e) {
     });
 });
 
+$(document).ready(function() {
+    randomMovement($("#butterfly"));
+});
+
+function randomMovement(IdRef) {
+    $(IdRef).animate({left: (Math.random() * (window.outerWidth-100)), top: (Math.random() * (window.outerHeight-100))},5000, function() {randomMovement(IdRef)});
+}
 
 $('#butterfly').mouseenter(function() {
-    $(this).animate({left: Math.random() * window.outerWidth - 100, top: Math.random() * window.outerHeight - 150},"slow");
+    $(this).stop();
+    $(this).animate({left: Math.random() * (window.outerWidth-150), top: Math.random() * (window.outerHeight-150)},"fast");
+    randomMovement(this);
 });
