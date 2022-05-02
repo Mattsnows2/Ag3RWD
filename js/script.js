@@ -20,6 +20,13 @@ $(document).mousemove(function(e) {
         left: e.pageX -60,
         top: e.pageY -100
     });
+
+    if (e.pageX > oldx && e.pageY == oldy) {
+        direction="East";
+    }
+    else if (e.pageX == oldx && e.pageY > oldy) {
+        direction="South";
+    }
 });
 
 $(document).ready(function() {
@@ -41,5 +48,24 @@ $(document).ready(function() {
 
         $("#backgroundImage").attr("src",'images/night.jpg').delay(2000);
     });
- 
 
+
+//Move caterpillar with the arrow keys
+var Xpos = $("#caterpillar").offset().left;
+var Ypos = $("#caterpillar").offset().top;
+var movement = 100;
+$(document).keydown(function(e){
+    $("#caterpillar").stop();
+    if (e.keyCode == 38){ 
+        $("#caterpillar").animate({top: -movement+Ypos}); Ypos = Ypos-movement;
+    }
+    if (e.keyCode == 39){ 
+        $("#caterpillar").animate({left: movement+Xpos}); Xpos = Xpos+movement;
+    }
+    if (e.keyCode == 40){ 
+        $("#caterpillar").animate({top: movement+Ypos}); Ypos = Ypos+movement;
+    }
+    if (e.keyCode == 37){ 
+        $("#caterpillar").animate({left: -movement+Xpos}); Xpos = Xpos-movement;
+    }
+});
