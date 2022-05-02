@@ -42,6 +42,7 @@ $(document).mousemove(function(e) {
 
 $(document).ready(function() {
     randomMovement($("#butterfly"));
+    $(".waterdrop").hide();
 });
 
 function randomMovement(IdRef) {
