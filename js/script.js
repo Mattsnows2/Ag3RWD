@@ -41,9 +41,25 @@ $(document).mousemove(function(e) {
 });
 
 $(document).ready(function() {
+     var date = new Date()
+     console.log(date.getHours());
     randomMovement($("#butterfly"));
     $(".waterdrop").hide();
+
+   if(date.getSeconds()>15 && date.getSeconds()<45)   {
+    $("#backgroundPicture").fadeIn();
+    $("#backgroundPicture").attr("src","../AG3RWD/images/day.jpg");
+   }else{
+    $("#backgroundPicture").fadeIn();
+    $("#backgroundPicture").attr("src","../AG3RWD/images/night.jpg");
+   }
+    
+       
+    
+   
 });
+
+
 
 function randomMovement(IdRef) {
     $(IdRef).animate({left: (Math.random() * (window.outerWidth-100)), top: (Math.random() * (window.outerHeight-100))},5000, function() {randomMovement(IdRef)});
