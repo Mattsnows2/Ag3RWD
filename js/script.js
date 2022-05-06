@@ -56,7 +56,7 @@ $(document).ready(function () {
     var random6 = Math.ceil(Math.random() * 350);
     console.log(date.getHours());
     randomMovement($("#butterfly"));
-   
+
 
     if (date.getSeconds() > 15 && date.getSeconds() < 45) {
         $("#backgroundPicture").fadeIn();
@@ -140,9 +140,9 @@ function waterdrops(post) {
     $(".waterdrop").offset({
         left: post.left,
         top: post.top + 100,
-        
+
     });
-    $("#waterdrop1").animate({ left: Math.floor(Math.random() * 11),top: window.outerHeight}, Math.random() * (9000 - 4000) + 4000);
-    $("#waterdrop3").animate({ top: window.outerHeight}, Math.random() * (9000 - 4000) + 4000);
-    $("#waterdrop2").animate({ left: (Math.floor(Math.random() * -11)),top: window.outerHeight}, Math.random() * (9000 - 4000) + 4000);
+    $("#waterdrop1").animate({ left: Math.floor(Math.random() * 990), top: window.outerHeight }, Math.random() * (9000 - 4000) + 4000);
+    $("#waterdrop3").animate({ top: window.outerHeight }, Math.random() * (9000 - 4000) + 4000);
+    $("#waterdrop2").animate({ left: Math.floor(Math.random() * 990), top: window.outerHeight }, Math.random() * (9000 - 4000) + 4000);
 }
