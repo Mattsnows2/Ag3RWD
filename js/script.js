@@ -1,91 +1,70 @@
-$("#apple1").on("click", function(){
+$("#apple1").on("click", function () {
 
-    var dim1=$(".basket");
+    var dim1 = $(".basket");
     var positionToBasket = dim1[0].getBoundingClientRect().top
     var positionToBasketLeft = dim1[0].getBoundingClientRect().left
     console.log(positionToBasketLeft);
-   
-    $("#apple1").animate({left: positionToBasketLeft+30, top:positionToBasket+150}, "slow") 
-  
-   
+
+    $("#apple1").animate({ left: positionToBasketLeft + 30, top: positionToBasket + 150 }, "slow")
+
+
 });
 
-$("#apple2").on("click", function(){
+$("#apple2").on("click", function () {
 
-    var dim1=$(".basket");
+    var dim1 = $(".basket");
     var positionToBasket = dim1[0].getBoundingClientRect().top
     var positionToBasketLeft = dim1[0].getBoundingClientRect().left
-    $("#apple2").animate({left: positionToBasketLeft+30, top:positionToBasket+150}, "slow")  //animation of the apples
+    $("#apple2").animate({ left: positionToBasketLeft + 30, top: positionToBasket + 150 }, "slow")  //animation of the apples
 });
 
-$("#apple3").on("click", function(){
+$("#apple3").on("click", function () {
 
-    var dim1=$(".basket");
+    var dim1 = $(".basket");
     var positionToBasket = dim1[0].getBoundingClientRect().top
     var positionToBasketLeft = dim1[0].getBoundingClientRect().left
-    $("#apple3").animate({left: positionToBasketLeft+30, top:positionToBasket+150}, "slow")  
+    $("#apple3").animate({ left: positionToBasketLeft + 30, top: positionToBasket + 150 }, "slow")
 });
 //MAKE THE MAGIC HAPPEN
-$(document).mousemove(function(e) {
+$(document).mousemove(function (e) {
     $('#net').offset({
-        left: e.pageX -60,
-        top: e.pageY -100
+        left: e.pageX - 60,
+        top: e.pageY - 100
     });
 
     if (e.pageX > oldx && e.pageY == oldy) {
-        direction="East";
+        direction = "East";
     }
     else if (e.pageX == oldx && e.pageY > oldy) {
-        direction="South";
+        direction = "South";
     }
 });
 
-$(document).ready(function() {
-     var date = new Date()
-     console.log(date.getHours());
-    randomMovement($("#butterfly"));
-    $(".waterdrop").hide();
-
-   if(date.getSeconds()>15 && date.getSeconds()<45)   {
-    $("#backgroundPicture").fadeIn();
-    $("#backgroundPicture").attr("src","../AG3RWD/images/day.jpg");
-   }else{
-    $("#backgroundPicture").fadeIn();
-    $("#backgroundPicture").attr("src","../AG3RWD/images/night.jpg");
-   }
-    
-       
-    
-   
-});
-
-
-
-function randomMovement(IdRef) {
-    $(IdRef).animate({left: (Math.random() * (window.outerWidth-100)), top: (Math.random() * (window.outerHeight-100))},5000, function() {randomMovement(IdRef)});
-}
-
-$('#butterfly').mouseenter(function() {
-    $(this).stop();
-    $(this).animate({left: Math.random() * (window.outerWidth-150), top: Math.random() * (window.outerHeight-150)},"fast");
-    randomMovement(this);
-});
-
-$(document).ready(function() {
-   
-
-    var minLeft=900;
-    var maxLeft=1200;
-    var minHeight=200;
-    var maxHeidht=500;
-    var random1 = Math.ceil(Math.random() * (maxLeft- minLeft)+minLeft);
+$(document).ready(function () {
+    var date = new Date()
+    var minLeft = 900;
+    var maxLeft = 1200;
+    var minHeight = 200;
+    var maxHeidht = 500;
+    var random1 = Math.ceil(Math.random() * (maxLeft - minLeft) + minLeft);
     var random2 = Math.ceil(Math.random() * 350);
 
-    var random3 = Math.ceil(Math.random() * (maxLeft- minLeft)+minLeft);
+    var random3 = Math.ceil(Math.random() * (maxLeft - minLeft) + minLeft);
     var random4 = Math.ceil(Math.random() * 350);
 
-    var random5 = Math.ceil(Math.random() * (maxLeft- minLeft)+minLeft);
+    var random5 = Math.ceil(Math.random() * (maxLeft - minLeft) + minLeft);
     var random6 = Math.ceil(Math.random() * 350);
+    console.log(date.getHours());
+    randomMovement($("#butterfly"));
+   
+
+    if (date.getSeconds() > 15 && date.getSeconds() < 45) {
+        $("#backgroundPicture").fadeIn();
+        $("#backgroundPicture").attr("src", "../AG3RWD/images/day.jpg");
+    } else {
+        $("#backgroundPicture").fadeIn();
+        $("#backgroundPicture").attr("src", "../AG3RWD/images/night.jpg");
+    }
 
 
     $("#apple1").css('top', random2);
@@ -97,28 +76,42 @@ $(document).ready(function() {
     $("#apple3").css('top', random6);
     $("#apple3").css('left', random5);
 
-  
-        $("#backgroundImage").attr("src",'images/night.jpg').delay(2000);
-    });
 
+    $("#backgroundImage").attr("src", 'images/night.jpg').delay(2000);
+
+
+
+});
+
+
+
+function randomMovement(IdRef) {
+    $(IdRef).animate({ left: (Math.random() * (window.outerWidth - 100)), top: (Math.random() * (window.outerHeight - 100)) }, 5000, function () { randomMovement(IdRef) });
+}
+
+$('#butterfly').mouseenter(function () {
+    $(this).stop();
+    $(this).animate({ left: Math.random() * (window.outerWidth - 150), top: Math.random() * (window.outerHeight - 150) }, "fast");
+    randomMovement(this);
+});
 
 //Move caterpillar with the arrow keys
 var Xpos = $("#caterpillar").offset().left;
 var Ypos = $("#caterpillar").offset().top;
 var movement = 100;
-$(document).keydown(function(e){
+$(document).keydown(function (e) {
     $("#caterpillar").stop();
-    if (e.keyCode == 38){ 
-        $("#caterpillar").animate({top: -movement+Ypos}); Ypos = Ypos-movement;
+    if (e.keyCode == 38) {
+        $("#caterpillar").animate({ top: -movement + Ypos }); Ypos = Ypos - movement;
     }
-    if (e.keyCode == 39){ 
-        $("#caterpillar").animate({left: movement+Xpos}); Xpos = Xpos+movement;
+    if (e.keyCode == 39) {
+        $("#caterpillar").animate({ left: movement + Xpos }); Xpos = Xpos + movement;
     }
-    if (e.keyCode == 40){ 
-        $("#caterpillar").animate({top: movement+Ypos}); Ypos = Ypos+movement;
+    if (e.keyCode == 40) {
+        $("#caterpillar").animate({ top: movement + Ypos }); Ypos = Ypos + movement;
     }
-    if (e.keyCode == 37){ 
-        $("#caterpillar").animate({left: -movement+Xpos}); Xpos = Xpos-movement;
+    if (e.keyCode == 37) {
+        $("#caterpillar").animate({ left: -movement + Xpos }); Xpos = Xpos - movement;
     }
 });
 
@@ -143,12 +136,13 @@ $('#wateringcan').on("mouseleave mouseup", function () {
     });
 });
 function waterdrops(post) {
+    $(".waterdrop").stop();
     $(".waterdrop").offset({
-            left:post.left,
-            top: post.top +100
-        });
-    
-        $(".waterdrop").fadeIn();
-        $(".waterdrop").animate();
-        $(".waterdrop").fadeOut();
+        left: post.left,
+        top: post.top + 100,
+        
+    });
+    $("#waterdrop1").animate({ left: Math.floor(Math.random() * 11),top: window.outerHeight}, Math.random() * (9000 - 4000) + 4000);
+    $("#waterdrop3").animate({ top: window.outerHeight}, Math.random() * (9000 - 4000) + 4000);
+    $("#waterdrop2").animate({ left: (Math.floor(Math.random() * -11)),top: window.outerHeight}, Math.random() * (9000 - 4000) + 4000);
 }
