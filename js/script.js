@@ -89,9 +89,8 @@ function randomMovement(IdRef) {
     $(IdRef).animate({ left: (Math.random() * (window.outerWidth - 100)), top: (Math.random() * (window.outerHeight - 100)) }, 5000, function () { randomMovement(IdRef) });
 }
 
-$('#butterfly').mouseenter(function () {
-    $(this).stop();
-    $(this).animate({ left: Math.random() * (window.outerWidth - 150), top: Math.random() * (window.outerHeight - 150) }, "fast");
+$("#butterfly").mouseenter(function () {
+    $(this).stop().animate({ left: Math.random() * (window.outerWidth - 150), top: Math.random() * (window.outerHeight - 150) }, "fast");
     randomMovement(this);
 });
 
@@ -124,7 +123,7 @@ $('#wateringcan').on('mousedown', function (e) {
     $('#wateringcan').css({
         'transform': 'rotate(' + degrees + 'deg)',
     });
-    waterdrops($(this).position())
+    waterdrops($(this).position(), 0)
 
 });
 
@@ -135,14 +134,34 @@ $('#wateringcan').on("mouseleave mouseup", function () {
         'transform': 'rotate(' + degrees + 'deg)',
     });
 });
-function waterdrops(post) {
-    $(".waterdrop").stop();
-    $(".waterdrop").offset({
-        left: post.left,
-        top: post.top + 100,
+function waterdrops(post, num) {
+    if (num != 0) {
+        $("#waterdrop" + num).offset({
+            left: post.left,
+            top: post.top + 100,
 
+        });
+    } else {
+        $(".waterdrop").stop();
+        $(".waterdrop").offset({
+            left: post.left,
+            top: post.top + 100,
+
+        });
+    }
+    $("#waterdrop1").animate({ left: Math.floor(Math.random() * 990), top: window.innerHeight - 250 }, Math.random() * (2000 - 1500) + 1500, function () {
+        if (tiltSt) {
+            waterdrops(post, 1)
+        }
     });
-    $("#waterdrop1").animate({ left: Math.floor(Math.random() * 990), top: window.outerHeight }, Math.random() * (9000 - 4000) + 4000);
-    $("#waterdrop3").animate({ top: window.outerHeight }, Math.random() * (9000 - 4000) + 4000);
-    $("#waterdrop2").animate({ left: Math.floor(Math.random() * 990), top: window.outerHeight }, Math.random() * (9000 - 4000) + 4000);
+    $("#waterdrop3").animate({ top: window.innerHeight - 250 }, Math.random() * (2000 - 1500) + 1500, function () {
+        if (tiltSt) {
+            waterdrops(post, 3)
+        }
+    });
+    $("#waterdrop2").animate({ left: Math.floor(Math.random() * 990), top: window.innerHeight - 250 }, Math.random() * (2000 - 1500) + 1500, function () {
+        if (tiltSt) {
+            waterdrops(post, 2)
+        }
+    });
 }
