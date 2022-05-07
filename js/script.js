@@ -149,17 +149,17 @@ function waterdrops(post, num) {
 
         });
     }
-    $("#waterdrop1").animate({ left: Math.floor(Math.random() * 990), top: window.innerHeight - 250 }, Math.random() * (2000 - 1500) + 1500, function () {
+    $("#waterdrop1").animate({ left: Math.floor(Math.random() * 990), top: window.innerHeight - 250 }, Math.random() * (2000 - 1900) + 1900, function () {
         if (tiltSt) {
             waterdrops(post, 1)
         }
     });
-    $("#waterdrop3").animate({ top: window.innerHeight - 250 }, Math.random() * (2000 - 1500) + 1500, function () {
+    $("#waterdrop3").animate({ top: window.innerHeight - 250 }, Math.random() * (2000 - 1900) + 1900, function () {
         if (tiltSt) {
             waterdrops(post, 3)
         }
     });
-    $("#waterdrop2").animate({ left: Math.floor(Math.random() * 990), top: window.innerHeight - 250 }, Math.random() * (2000 - 1500) + 1500, function () {
+    $("#waterdrop2").animate({ left: Math.floor(Math.random() * 990), top: window.innerHeight - 250 }, Math.random() * (2000 - 1900) + 1900, function () {
         if (tiltSt) {
             waterdrops(post, 2)
         }
