@@ -42,19 +42,22 @@ $(document).mousemove(function (e) {
 
 $(document).ready(function () {
     var date = new Date()
-    var minLeft = 900;
-    var maxLeft = 1200;
-    var minHeight = 200;
-    var maxHeidht = 500;
+    var dimTree = $('#tree');
+    var minLeft = dimTree[0].getBoundingClientRect().left+300;
+    var maxLeft = dimTree[0].getBoundingClientRect().left +500;
+    console.log(minLeft, maxLeft);
+    var minHeight = dimTree[0].getBoundingClientRect().top+200;
+    var maxHeidht = dimTree[0].getBoundingClientRect().top+50;
     var random1 = Math.ceil(Math.random() * (maxLeft - minLeft) + minLeft);
-    var random2 = Math.ceil(Math.random() * 350);
+    var random2 = Math.ceil(Math.random()*(maxHeidht- minHeight) + minHeight);
+    console.log(random1, random2);
 
-    var random3 = Math.ceil(Math.random() * (maxLeft - minLeft) + minLeft);
-    var random4 = Math.ceil(Math.random() * 350);
+   var random3 = Math.ceil(Math.random() * (maxLeft - minLeft) + minLeft);
+    var random4 = Math.ceil(Math.random() * (maxHeidht-minHeight) + minHeight);
 
     var random5 = Math.ceil(Math.random() * (maxLeft - minLeft) + minLeft);
-    var random6 = Math.ceil(Math.random() * 350);
-    console.log(date.getHours());
+    var random6 = Math.ceil(Math.random() * (maxHeidht-minHeight) + minHeight);
+    console.log(date.getHours())
     randomMovement($("#butterfly"));
 
 
